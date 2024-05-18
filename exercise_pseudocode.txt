@@ -1,0 +1,161 @@
+1. Create a function to convert Excel sheet column title to its corresponding column number.
+● Example : 
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+…
+● Example : 
+○ Input : AB
+○ Output : 28
+
+Pseudocode:
+1. Declare the function with parameter
+FUNCTION Convert Excel Column
+    PASS IN: string (columnTitle)
+2. Define variable columnNumber to store the output
+    let columnNumber = 0
+3. Define the formula of power
+    let power = columnTitle.length - 1
+4. Define the loop
+    FOR (let i = 0; i < columnTitle.length; i++)
+5. Define the formula to determine the column number
+        columnNumber += (columnTitle.charCodeAt(0) - 64) + (26 ** power)
+        power--
+6. Set end of for loop and return the column number
+    END FOR
+    PASS OUT: columnNumber
+END FUNCTION
+
+Note:
+● For reference, visualization of the empty Excel sheet is in the folder
+
+2. Given a non-empty array of integers nums, every element appears twice except for one. Find that 
+single one.
+ ● Example 1:
+ ○ Input: nums = [2,2,1]
+ ○ Output: 1
+ ● Example 2:
+ ○ Input: nums = [4,1,2,1,2]
+ ○ Output: 4
+ ● Example 3:
+ ○ Input: nums = [1]
+ ○ Output: 1
+
+Pseudocode:
+1. Declare the function with parameter
+FUNCTION Single Number
+    PASS IN: array of integer (nums)
+2. Define variable single to store the output
+    let single = 0
+3. Define the looping
+    FOR (let i = 0; i < nums.length; i++)
+4. Define the double variable
+        let double = false
+5. Define the inner loop
+        FOR (let j = i + 1; j < nums.length; j++)
+6. Define conditional to check whether there are double numbers
+            IF (nums[i] == nums[j] && i != j)
+                double = true
+            END IF
+7. Set end of for and define conditional to check whether a number in an array is single number,
+if there is no single number, return -1 instead
+        END FOR
+        IF(!double)
+            return nums[i]
+        END IF
+        return -1
+    END FOR
+    PASS OUT: single
+END FUNCTION
+
+3. Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+ ● An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, 
+typically using all the original letters exactly once.
+ ● Example 1:
+ ○ Input: s = "anagram", t = "nagaram"
+ ○ Output: true
+ ● Example 2:
+ ○ Input: s = "rat", t = "car"
+ ○ Output: false
+
+Pseudocode:
+(Main Function)
+1. Declare the function with parameter
+FUNCTION Is Anagram
+    PASS IN: strings (s, t)
+2. Set the condition to check whether s and t have the same length
+If s and t don't have the same length, return false
+    IF (s.length != t.length)
+        return false
+    END IF
+3. Sort array of letters of both strings
+    ss = Sort(s)
+    ts = Sort(t)
+4. Declare for loop
+    FOR (let i = 0; i < ss.length; i++)
+5. Set the condition to check whether all the letters from t string is the same as the letters from s string
+If any letter from t string is different from a letter from s string, return false
+        IF (ss[i] != ts[i])
+            return false
+        END IF
+6. Set end of for loop and return whether t string is an anagram of s string
+    END FOR
+    return true
+END FUNCTION
+
+(Sort Function)
+1. Declare the function to sort letters in an array
+FUNCTION Sort
+    PASS IN: array of letters (arr)
+2. Declare for loop
+    FOR (let i = 0; i < arr.length; i++)
+3. Declare inner for loop
+        FOR (let j = 0; j < arr.length; j++)
+4. Define the condition to sort the letters in an array
+            IF (arr[i] < arr[j])
+                let temp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
+            END IF
+5. Set end of for loops and end of function
+        END FOR
+    END FOR
+END FUNCTION
+
+4. You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 
+ steps. In how many distinct ways can you climb to the top?
+  ● Example 1:
+  ○ Input: n = 2
+  ○ Output: 2
+  ○ Explanation: There are two ways to climb to the top.
+  ■ 1. 1 step + 1 step
+  ■ 2. 2 steps
+  ● Example 2:
+  ○ Input: n = 3
+  ○ Output: 3
+  ○ Explanation: There are three ways to climb to the top.
+  ■ 1. 1 step + 1 step + 1 step
+  ■ 2. 1 step + 2 steps
+  ■ 3. 2 steps + 1 step
+
+Pseudocode:
+1. Declare the function with parameter
+FUNCTION Staircase
+    PASS IN: integer (n)
+2. Define the first and second steps in integer
+    let firstStair = 1
+    let secondStair = 2
+3. Declare for loop
+    FOR (let i = 3; i < n; i++)
+4. Define the stairs formula to calculate distinct ways to climb to the top
+        let temp = secondStair
+        secondStair = firstStair + secondStair
+        firstStair = temp
+5. Set end for loop and return the second stair combo
+    END FOR
+    PASS OUT: secondStair
+END FUNCTION

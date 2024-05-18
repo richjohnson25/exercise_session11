@@ -1,0 +1,80 @@
+function matrixAdd(arr1, arr2) {
+
+}
+
+1. Declare function with parameter
+FUNCTION Matrix Add
+    PASS IN: array of integer (arr1, arr2)
+2. Define the result in the form of matrix
+    let result = []
+3. Declare the loop
+    FOR (let i = 0; i < arr1.length; i++)
+4. Define the temp array to store the results
+        let temp = []
+5. Declare the inner loop
+        FOR (let j = 0; j < arr1.length; j++)
+6. Calculate each element of arr1 and arr2, then push the result into the temp array
+            temp.push(arr1[i][j] + arr2[i][j])
+7. Set end of inner for loop and push the temp array to the result array
+        END FOR
+        result.push(temp)
+8. Set end of for loops and return the sum
+    END FOR
+    PASS OUT: result
+END SELECTION
+
+function arraySudoku(board, coordinate, value){
+    
+}
+
+1. Declare function with parameter
+FUNCTION arraySudoku
+    PASS IN:
+        array of integer (board, coordinate)
+        integer (value)
+2. Declare the vertical loop
+    FOR (let i = 0; i < 9; i++)
+3. Define the condition
+4. Set end of for loop
+4. Declare the horizontal loop
+    FOR (let j = 0; j < 9; j++)
+    END FOR
+END FUNCTION
+
+Minesweeper
+function minesweeper(board, coordinates)
+
+1. Declare function with parameter
+FUNCTION minesweeper
+    PASS IN:
+        array of integer (board, coordinate)
+2. Define the number of bombs around the coordinate matrix
+    let bombs = 0
+3. Define the condition to detect any bombs in a matrix
+    IF (board[coordinate[0]][coordinate[1]-1] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]][coordinate[1]+1] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]-1][coordinate[0]] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]+1][coordinate[0]] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]-1][coordinate[1]-1] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]-1][coordinate[1]+1] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]+1][coordinate[1]-1] == 0)
+        bombs++
+    END IF
+    IF (board[coordinate[0]+1][coordinate[1]+1] == 0)
+        bombs++
+    END IF
+4. Set end of function by returning the number of bombs
+    PASS OUT: bombs
+END FUNCTION
